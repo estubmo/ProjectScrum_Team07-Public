@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.team7.Domain.Bruker" table="Bruker">
+        <meta attribute="class-description">
+            Dataklasse for bruker
+        </meta>
+        <id name="epost" column="epost" type="string">
+         
+        </id>
+        <property name="passord" column="passord" type="string"/>
+        <property name="etternavn" column="etternavn" type="string"/>
+        <property name="fornavn" column="fornavn" type="string"/>
+        <property name="score" column="score" type="int"/>
+        <property name="antGodkjente" column="antGodkjente" type="int"/>
+        <property name="rettighet" column="rettighet" type="string"/>
+    </class>
+
+</hibernate-mapping>

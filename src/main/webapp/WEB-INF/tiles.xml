@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+        <put-attribute name="title"  value="BaseLayout"/>
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+        <put-attribute name="menu"   value="/WEB-INF/tiles/menu.jsp"/>
+        <put-attribute name="innstillinger"   value="/WEB-INF/tiles/innstillinger.jsp"/>
+        <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
+    </definition>
+  
+    <definition name="login" template="/WEB-INF/tiles/indexTile.jsp">
+        <put-attribute name="title" value="PST7 - Login"/>
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
+    </definition>
+  
+    <definition name="welcome" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Hovedside"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/welcome.jsp"/>      
+    </definition>
+    
+    <definition name="spill" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Spill"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/spill.jsp"/>      
+    </definition>
+    
+
+    <definition name="startspill" extends="baseLayout">
+        <put-attribute name="title"  value="Spill"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/startspill.jsp"/>      
+    </definition>
+    
+    <definition name="ferdigspill" extends="baseLayout">
+        <put-attribute name="title"  value="Spill"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/ferdigspill.jsp"/>      
+    </definition>
+  
+    <definition name="godkjenningsliste" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Godkjenningsliste"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/godkjenningsliste.jsp"/>      
+    </definition>
+  
+
+    <definition name="highscore" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Highscore"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/highscore.jsp"/>      
+    </definition>
+    
+    <definition name="spill2" extends="baseLayout">
+        <put-attribute name="title"  value="Simospel"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/spill2.jsp"/>      
+    </definition>
+
+    <definition name="registrering" template="/WEB-INF/tiles/indexTile.jsp">
+        <put-attribute name="title"  value="PST7 - Registrering"/>
+        <put-attribute name="body"   value="/WEB-INF/views/registrering.jsp"/>      
+    </definition>
+  
+    <definition name="brukersvar" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Brukersvar"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/brukersvar.jsp"/>      
+    </definition>
+    
+    <definition name="brukerrett" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Brukerrettighet"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/brukerrettighet.jsp"/>      
+    </definition>
+    
+    <definition name="admin" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Administrator"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/admin.jsp"/>      
+    </definition>
+    
+    <definition name="chat" template="/WEB-INF/views/main/chat.jsp">
+   
+    </definition>
+    
+    <definition name="passordendret" extends="baseLayout">
+        <put-attribute name="title"  value="PST7 - Passordendret"/>
+        <put-attribute name="body"   value="/WEB-INF/views/main/passordendret.jsp"/>      
+    </definition>
+</tiles-definitions>

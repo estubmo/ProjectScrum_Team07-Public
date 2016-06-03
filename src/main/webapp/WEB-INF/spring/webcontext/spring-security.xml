@@ -1,0 +1,58 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+ 
+    <beans:bean id="authenticatedVoter"
+                class="org.springframework.security.access.vote.AuthenticatedVoter" >
+    </beans:bean>
+    <beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+        <beans:property name="rolePrefix" value="" />
+    </beans:bean>
+    <beans:bean  id="accessDecisionManager"
+          class="org.springframework.security.access.vote.AffirmativeBased">
+        <beans:property name="decisionVoters">
+            <beans:list>
+                <beans:ref bean="roleVoter" />
+                <beans:ref bean="authenticatedVoter" />
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+    <http auto-config="true" access-decision-manager-ref="accessDecisionManager" >
+        <intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+
+        <intercept-url pattern="/main/admin**" access="admin"/>
+        <intercept-url pattern="/main/brukerrettighet**" access="admin"/>
+        <intercept-url pattern="/main/brukersvar/**" access="studass,lærer, admin"/>
+        <intercept-url pattern="/main/**" access="lærer, admin, studass, student" />
+        <!--    Roller: student, lærer, studass, admin -->
+        <form-login 
+            login-page="/login" 
+            default-target-url="/main/" 
+            authentication-failure-url="/login?error" 
+            username-parameter="epost"
+            password-parameter="passord" />
+        <logout logout-success-url="/login?logout" />
+    </http>
+    <beans:bean id="MyUserDetailsService" class="com.team7.service.MyUserDetailsService"/>
+    <beans:bean id="PasswordValidator" class="com.team7.Validator.PasswordValidator"/>
+    <authentication-manager>
+        <authentication-provider user-service-ref="MyUserDetailsService">  
+             <password-encoder ref="PasswordValidator">
+                 </password-encoder>
+<!--            <password-encoder hash="plaintext">  
+        </password-encoder>-->
+        </authentication-provider>  
+        
+<!--        <authentication-provider>
+            <user-service>
+                <user name="ivar@ivar.no" password="ivar123" authorities="admin" />
+                <user name="eirik@sm.no" password="123" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>-->
+    </authentication-manager>
+ 
+</beans:beans>
