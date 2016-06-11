@@ -1,5 +1,5 @@
 # ProjectScrum_Team07-Public
-##### A student project developed in Spring MVC for NTNU (The Norwegian University of Science and Technology)
+###### A student project developed in Spring MVC for NTNU (The Norwegian University of Science and Technology)
 
 ## Abstract
 
